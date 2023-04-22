@@ -104,7 +104,7 @@ def train(xtrain,ytrain):
     model.compile(loss='binary_crossentropy',optimizer='adam')
     model.fit(x=xtrain, 
         y=ytrain, 
-        epochs=20,
+        epochs=2,
         batch_size=256,
         validation_data=(X_test, y_test), 
         )
@@ -138,3 +138,4 @@ if __name__ == '__main__':
     print(new_status)
     nc = new_customer.values.reshape(1,78)
     print((Model.predict(scaler.transform(nc)) > 0.5).astype("int32"))
+    Model.save('lending.h5')
